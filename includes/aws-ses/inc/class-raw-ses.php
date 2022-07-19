@@ -368,7 +368,7 @@ class Raw_SES {
             } else if ( $data === 'remaining' ){
                 $result = $remaining;
             } else if ( $data === 'send_rate' ){
-                $result = $rate;
+                $result = $send_rate;
             } else {
                 $result = compact( 'max', 'sent', 'remaining', 'send_rate' );
             }
