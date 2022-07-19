@@ -89,7 +89,7 @@ class WP_AMAZON_SES {
             $notice .= "AWS_SES_WP_MAIL_REGION - ";
         }
         if( $notice ){
-            $notice .= "must <a href='https://github.com/sadiqodunsi/wp-amazon-ses-and-sns.git' target='_blank'>defined</a> in wp-config before you can send email via Amazon SES.";
+            $notice .= "must <a href='https://github.com/sadiqodunsi/wp-amazon-ses.git' target='_blank'>defined</a> in wp-config before you can send email via Amazon SES.";
             printf( '<div class="%s"><p>%s</p></div>', $class, $notice );
         }
     }
