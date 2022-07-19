@@ -155,6 +155,7 @@ class WP_AMAZON_SES {
         $max = 0;
         $sent = 0;
         $available = 0;
+        $send_rate = 0;
         // If neccessary constants are not defined, AWS SES will not be loaded
         if( class_exists('AWS_SES_WP_Mail\Raw_SES') ){
             $ses = new AWS_SES_WP_Mail\Raw_SES();
@@ -162,6 +163,7 @@ class WP_AMAZON_SES {
             $max = $send_quota['max'];
             $sent = $send_quota['sent'];
             $available = round( ( $sent / $max ) * 100, 2 );
+            $send_rate = $send_quota['send_rate'];
         }
         $args = [];
         if( isset( $_GET['subject'] ) ) {
@@ -175,7 +177,7 @@ class WP_AMAZON_SES {
         ?>
             <div class="wrap email-log">
                 <h2>Email log</h2>
-                <p>Max send rate: <?php echo esc_html( $send_quota['send_rate'] ); ?> emails per second</p>
+                <p>Max send rate: <?php echo esc_html( $send_rate ); ?> emails per second</p>
                 <div class="flex center">
                     <span>
                         <div><?php echo esc_html( "$sent / " . $this->shorten_number( $max ) . " used (24h)" ); ?></div>
